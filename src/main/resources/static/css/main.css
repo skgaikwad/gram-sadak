@@ -672,7 +672,7 @@ font-weight: bold;
 }
 
 .widthFillAll{
-width: -webkit-fill-available;
+  width: -webkit-fill-available;
 }
 
 .formButton{
