@@ -1,7 +1,5 @@
 package com.hp.web.portal.gram_sadak.model;
 
-import java.util.List;
-
 public class TestResultSheet {
 
 	private Integer jobId;
@@ -15,8 +13,7 @@ public class TestResultSheet {
 	private String dateOfReceipt;
 	private String nameOfWork1;
 	private String nameOfWork2;
-	
-	private List<TestResultSheetMapping> testResultSheetMappingList;
+
 
 	public Integer getJobId() {
 		return jobId;
@@ -106,11 +103,4 @@ public class TestResultSheet {
 		this.nameOfWork2 = nameOfWork2;
 	}
 
-	public List<TestResultSheetMapping> getTestResultSheetMappingList() {
-		return testResultSheetMappingList;
-	}
-
-	public void setTestResultSheetMappingList(List<TestResultSheetMapping> testResultSheetMappingList) {
-		this.testResultSheetMappingList = testResultSheetMappingList;
-	}	
 }
