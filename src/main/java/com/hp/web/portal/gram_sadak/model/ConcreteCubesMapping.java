@@ -1,6 +1,6 @@
 package com.hp.web.portal.gram_sadak.model;
 
-public class TestResultSheetMapping {
+public class ConcreteCubesMapping {
 
 	private String srNo;
 	private String identificationOfMark;
@@ -18,10 +18,10 @@ public class TestResultSheetMapping {
 	private String observedSecond;
 	private String observedThird;
 	
-	public TestResultSheetMapping() {
+	public ConcreteCubesMapping() {
 		}
 	
-	public TestResultSheetMapping(String srNo) {
+	public ConcreteCubesMapping(String srNo) {
 		super();
 		this.srNo = srNo;
 	}

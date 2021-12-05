@@ -24,5 +24,10 @@ public interface JobRepository extends JpaRepository<Job, Long>{
 	@Transactional
 	@Query(value=" UPDATE Job set JobId=:jobId ",nativeQuery = true)
 	Integer incrementJobId(@Param("jobId") Integer jobId);
+
+
+
+
+
 	
 }
