@@ -10,14 +10,14 @@
 	<link th:href="@{./css/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div id="content">
+<div id="content" style="margin:1%">
 <body>
-    <form action="#" th:action="@{/paverBlockTestResultSheet/pdf}" th:object="${testResultSheet}" method="post">
+    <form action="#" th:action="@{/testResultSheet/pdf/paverBlockTestResultSheetPdf}" th:object="${testResultSheet}" method="post">
     <div th:replace="header :: myheader"></div>
     <center><h5>Test Result of Concrete Paver Bricks</h5></center>
     <br/>
     <center>
-    <table border="1">
+    <table border="1" align="center">
         <tr>
             <th rowspan=2>Sr. No.</th>
             <th rowspan=2>Identification of Mark</th>

@@ -40,113 +40,15 @@ public class PdfServiceImpl implements IPdfService {
 	@Autowired
 	private ServletContext servletContext;
 
-	public ResponseEntity<?> generateConcreteCubesResultSheetPDF(@ModelAttribute TestResultSheet testResultSheet, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ResponseEntity<?> generateTestResultSheetPDF(@ModelAttribute TestResultSheet testResultSheet, HttpServletRequest request, HttpServletResponse response,String fileName) throws IOException {
 
-		/*
-		 * Overridden updated job id and transaction id for unique id*/
-
-		Integer jobId = jobRepository.getNewJobId();
-		Integer transactionId = transactionRepository.getNewTransactionId();
-
-		testResultSheet.setTransactionId(transactionId);
-		testResultSheet.setJobId(jobId);
+		generateJobAndTransactionId(testResultSheet);
 
 		/* Create HTML using Thymeleaf template Engine */
 		WebContext context = new WebContext(request, response, servletContext);
-		context.setVariable("concreteCubes", testResultSheet);
+		context.setVariable("testResultSheet", testResultSheet);
 
-		String testResultSheetHtml = templateEngine.process("concreteCubesResultSheetPdf", context);
-
-		/* Setup Source and target I/O streams */
-
-		ByteArrayOutputStream target = new ByteArrayOutputStream();
-		ConverterProperties converterProperties = new ConverterProperties();
-		converterProperties.setBaseUri("http://localhost:8080");
-
-
-		/* Call convert method */
-		HtmlConverter.convertToPdf(testResultSheetHtml, target, converterProperties);
-
-
-       /* PdfDocument pdfDocument = new PdfDocument(new PdfWriter(new File(sourcePath)));
-        pdfDocument.setDefaultPageSize(PageSize.A4.rotate());
-        HtmlConverter.convertToPdf(new FileInputStream(destPath), pdfDocument, props);*/
-
-		/* extract output as bytes */
-		byte[] bytes = target.toByteArray();
-
-		/* Increment counters*/
-		incrementDownloadIndex(testResultSheet);
-
-		/* Send the response as downloadable PDF */
-		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=testResultSheetPdf.pdf")
-				.contentType(MediaType.APPLICATION_PDF)
-				.body(bytes);
-
-	}
-
-	public ResponseEntity<?> generateBricksTestResultSheetPDF(@ModelAttribute TestResultSheet testResultSheet, HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-		/*
-		 * Overridden updated job id and transaction id for unique id*/
-
-		Integer jobId = jobRepository.getNewJobId();
-		Integer transactionId = transactionRepository.getNewTransactionId();
-
-		testResultSheet.setTransactionId(transactionId);
-		testResultSheet.setJobId(jobId);
-
-		/* Create HTML using Thymeleaf template Engine */
-		WebContext context = new WebContext(request, response, servletContext);
-		context.setVariable("bricks", testResultSheet);
-
-		String testResultSheetHtml = templateEngine.process("bricksTestResultSheetPdf", context);
-
-		/* Setup Source and target I/O streams */
-
-		ByteArrayOutputStream target = new ByteArrayOutputStream();
-		ConverterProperties converterProperties = new ConverterProperties();
-		converterProperties.setBaseUri("http://localhost:8080");
-
-
-		/* Call convert method */
-		HtmlConverter.convertToPdf(testResultSheetHtml, target, converterProperties);
-
-
-       /* PdfDocument pdfDocument = new PdfDocument(new PdfWriter(new File(sourcePath)));
-        pdfDocument.setDefaultPageSize(PageSize.A4.rotate());
-        HtmlConverter.convertToPdf(new FileInputStream(destPath), pdfDocument, props);*/
-
-		/* extract output as bytes */
-		byte[] bytes = target.toByteArray();
-
-		/* Increment counters*/
-		incrementDownloadIndex(testResultSheet);
-
-		/* Send the response as downloadable PDF */
-		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=bricksTestResultSheetPdf.pdf")
-				.contentType(MediaType.APPLICATION_PDF)
-				.body(bytes);
-
-    }
-
-	public ResponseEntity<?> generatePaverBlockTestResultSheetPDF(@ModelAttribute TestResultSheet testResultSheet, HttpServletRequest request, HttpServletResponse response) throws IOException {
-		/*
-		 * Overridden updated job id and transaction id for unique id*/
-
-		Integer jobId = jobRepository.getNewJobId();
-		Integer transactionId = transactionRepository.getNewTransactionId();
-
-		testResultSheet.setTransactionId(transactionId);
-		testResultSheet.setJobId(jobId);
-
-		/* Create HTML using Thymeleaf template Engine */
-		WebContext context = new WebContext(request, response, servletContext);
-		context.setVariable("paverBlock", testResultSheet);
-
-		String testResultSheetHtml = templateEngine.process("paverBlockTestResultSheetPdf", context);
+		String testResultSheetHtml = templateEngine.process(fileName, context);
 
 		/* Setup Source and target I/O streams */
 
@@ -166,25 +68,29 @@ public class PdfServiceImpl implements IPdfService {
 
 		/* Send the response as downloadable PDF */
 		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=paverBlockTestResultSheetPdf.pdf")
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename="+fileName+".pdf")
 				.contentType(MediaType.APPLICATION_PDF)
 				.body(bytes);
+
 	}
 
 	@Transactional
 	private void incrementDownloadIndex(TestResultSheet testResultSheet ) {
-		
 		LOG.info("#### Increment job and transaction id");
 		jobRepository.incrementJobId(testResultSheet.getJobId());
 		transactionRepository.incrementTransactionId(testResultSheet.getTransactionId());
-		
-		/*Job job = new Job();
-		job.setJobId(testResultSheet.getJobId());
-		jobRepository.save(job);
-		
-		Transaction transaction = new Transaction();
-		transaction.setId(testResultSheet.getTransactionId());
-		transactionRepository.save(transaction);*/
+	}
+
+	/*
+	 * Overridden updated job id and transaction id for unique id*/
+	@Transactional
+	public void generateJobAndTransactionId(TestResultSheet testResultSheet){
+		LOG.info("#### Generate job and transaction id");
+		Integer jobId = jobRepository.getNewJobId();
+		Integer transactionId = transactionRepository.getNewTransactionId();
+
+		testResultSheet.setTransactionId(transactionId);
+		testResultSheet.setJobId(jobId);
 	}
 
 }

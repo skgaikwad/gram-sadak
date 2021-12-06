@@ -9,9 +9,9 @@
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div id="content">
+<div id="content" style="margin:1%">
     <body>
-    <form action="#" th:action="@{/sandTestResultSheet/pdf}" th:object="${sand}" method="post">
+    <form action="#" th:action="@{/testResultSheet/pdf/sandTestResultSheetPdf}" th:object="${testResultSheet}" method="post">
 
         <center>
             <table  width="100%">
@@ -54,7 +54,7 @@
         </table>
 
         <center><h5>Test Result of Sand</h5></center>
-        <table border="1">
+        <table border="1" align="center">
             <tr>
                 <th>Sr. No.</th>
                 <th>Material</th>
@@ -75,6 +75,7 @@
                 <td th:text="*{sandMappingList[__${itemStat.index}__].fitnessAnalysis}"></td>
             </tr>
         </table>
+        <br/>
         <div>
             1.The Test Results are based on samples received in the Laboratory
             <br/>

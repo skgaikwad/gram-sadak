@@ -10,15 +10,15 @@
 	<link th:href="@{./css/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div id="content">
+<div id="content" style="margin:1%">
 <body>
-    <form action="#" th:action="@{/concreteCubesResultSheet/pdf}" th:object="${testResultSheet}" method="post">
+    <form action="#" th:action="@{/testResultSheet/pdf/concreteCubesResultSheetPdf}" th:object="${testResultSheet}" method="post">
 
 	<div th:replace="header :: myheader"></div>
 
     <center><h5>Test Result of Concrete Cubes</h5></center>
     <br/>
-    <table border="1">
+    <table border="1" align="center">
 		<tr>
 	     <th rowspan=2>Sr. No.</th>
 		 <th rowspan=2>Identification of Mark</th> 

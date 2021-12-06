@@ -9,9 +9,9 @@
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div id="content">
+<div id="content" style="margin:1%">
     <body>
-    <form action="#" th:action="@{/penetretionTestResultSheet/pdf}" th:object="${penetretion}" method="post">
+    <form action="#" th:action="@{/testResultSheet/pdf/penetretionTestResultSheetPdf}" th:object="${testResultSheet}" method="post">
 
         <center>
             <table  width="100%">
@@ -54,7 +54,7 @@
         </table>
 
         <center><h5>Test Result of Penetretion</h5></center>
-        <table border="1">
+        <table border="1" align="center">
             <tr>
                 <th>Sr. No.</th>
                 <th>Material</th>
@@ -74,7 +74,7 @@
                 <td th:text="*{penetretionMappingList[__${itemStat.index}__].limits}"></td>
                 <td th:text="*{penetretionMappingList[__${itemStat.index}__].remarks}"></td>
             </tr>
-        </table>
+        </table><br/>
         <div>
             1.The Test Results are based on samples received in the Laboratory
             <br/>
