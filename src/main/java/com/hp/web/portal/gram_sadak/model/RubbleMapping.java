@@ -4,8 +4,6 @@ public class RubbleMapping {
 
     private String srNo;
     private String material;
-
-    private String nameOfTest;
     private String compressiveStrengthKgcm2;
     private String crushingValue;
     private String waterAbsorption;
@@ -32,14 +30,6 @@ public class RubbleMapping {
 
     public void setMaterial(String material) {
         this.material = material;
-    }
-
-    public String getNameOfTest() {
-        return nameOfTest;
-    }
-
-    public void setNameOfTest(String nameOfTest) {
-        this.nameOfTest = nameOfTest;
     }
 
     public String getCompressiveStrengthKgcm2() {

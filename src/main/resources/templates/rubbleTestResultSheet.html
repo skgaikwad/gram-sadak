@@ -34,12 +34,11 @@
 	     <tr th:each="rubbleMappingList, itemStat : ${testResultSheet.rubbleMappingList}">
 	     	 <td th:text="*{rubbleMappingList[__${itemStat.index}__].srNo}" />
 	     	 <input type="hidden" name="rubbleMappingList.srNo" th:field="*{rubbleMappingList[__${itemStat.index}__].srNo}" />
-             <td><input name="rubbleMappingList.nameOfTest" th:field="*{rubbleMappingList[__${itemStat.index}__].nameOfTest}" /></td>
+             <td><input name="rubbleMappingList.material" th:field="*{rubbleMappingList[__${itemStat.index}__].material}" /></td>
              <td><input name="rubbleMappingList.compressiveStrengthKgcm2" th:field="*{rubbleMappingList[__${itemStat.index}__].compressiveStrengthKgcm2}" /></td>
-             
              <td><input name="rubbleMappingList.crushingValue" th:field="*{rubbleMappingList[__${itemStat.index}__].crushingValue}" /></td>
              <td><input name="rubbleMappingList.waterAbsorption" th:field="*{rubbleMappingList[__${itemStat.index}__].waterAbsorption}" /></td>
-	    </tr> 
+         </tr>
     </table>
     </center>
     <br/>

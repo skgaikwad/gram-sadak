@@ -70,10 +70,10 @@
             </tr>
             <tr th:each="rubbleMappingList, itemStat : *{rubbleMappingList}">
                 <td th:text="*{rubbleMappingList[__${itemStat.index}__].srNo}" />
-                <td th:text="*{rubbleMappingList[__${itemStat.index}__].nameOfTest}"></td>
+                <td th:text="*{rubbleMappingList[__${itemStat.index}__].material}" />
                 <td th:text="*{rubbleMappingList[__${itemStat.index}__].compressiveStrengthKgcm2}"></td>
                 <td th:text="*{rubbleMappingList[__${itemStat.index}__].crushingValue}"></td>
-                <td th:text="*{rubbleMappingList[__${itemStat.index}__].limits}"></td>
+                <td th:text="*{rubbleMappingList[__${itemStat.index}__].waterAbsorption}"></td>
             </tr>
         </table><br/>
         <div>
