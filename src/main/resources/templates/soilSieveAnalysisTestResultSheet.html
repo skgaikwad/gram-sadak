@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>PRADHAN MANTRI GRAM SADAK YOJANA</title>
+    <link th:href="@{./css/main.css}" rel="stylesheet"/>
+	<link th:href="@{./css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="content" style="margin:1%">
+<body>
+    <form action="#" th:action="@{/testResultSheet/pdf/soilSieveAnalysisTestResultSheetPdf}" th:object="${testResultSheet}" method="post">
+    <div th:replace="header :: myheader"></div>
+    <center><h5>Test Result of Sand</h5></center>
+    <br/>
+    <center>
+    <table border="1" align="center">
+		<tr>
+	     <th>Sr. No.</th>
+         <th>Material</th>
+         <th>Sieve Size</th>
+         <th>Weight of Sample Retained(gm)</th>
+         <th>Percent of Weight Retained</th>
+         <th>Cumulative Percent of Weight Retained(%)</th>
+		 <th>Percent of Weight Passing</th>
+        </tr>
+		 <tr class="thbold">
+	    	<td>1</td><td>2</td><td>3</td><td>4</td>
+            <td>5</td><td>6</td><td>7</td>
+	    </tr>
+	     <tr th:each="soilSieveAnalysisMappingList, itemStat : ${testResultSheet.soilSieveAnalysisMappingList}">
+	     	 <td th:text="*{soilSieveAnalysisMappingList[__${itemStat.index}__].srNo}" />
+	     	 <input type="hidden" name="soilSieveAnalysisMappingList.srNo" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].srNo}" />
+             <td><input name="soilSieveAnalysisMappingList.material" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].material}" /></td>
+             <td>
+                 <input name="soilSieveAnalysisMappingList.sieveSizeOne" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].sieveSizeOne}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.sieveSizeTwo" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].sieveSizeTwo}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.sieveSizeThree" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].sieveSizeThree}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.sieveSizeFour" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].sieveSizeFour}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.sieveSizeFive" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].sieveSizeFive}" />
+             </td>
+             <td>
+                 <input name="soilSieveAnalysisMappingList.weightOfSampleRetainedOne" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].weightOfSampleRetainedOne}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.weightOfSampleRetainedTwo" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].weightOfSampleRetainedTwo}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.weightOfSampleRetainedThree" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].weightOfSampleRetainedThree}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.weightOfSampleRetainedFour" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].weightOfSampleRetainedFour}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.weightOfSampleRetainedFive" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].weightOfSampleRetainedFive}" />
+             </td>
+             <td>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightRetainedOne" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightRetainedOne}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightRetainedTwo" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightRetainedTwo}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightRetainedThree" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightRetainedThree}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightRetainedFour" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightRetainedFour}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightRetainedFive" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightRetainedFive}" />
+             </td>
+             <td>
+                 <input name="soilSieveAnalysisMappingList.cumulativePercentOfWeightRetainedOne" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].cumulativePercentOfWeightRetainedOne}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.cumulativePercentOfWeightRetainedTwo" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].cumulativePercentOfWeightRetainedTwo}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.cumulativePercentOfWeightRetainedThree" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].cumulativePercentOfWeightRetainedThree}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.cumulativePercentOfWeightRetainedFour" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].cumulativePercentOfWeightRetainedFour}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.cumulativePercentOfWeightRetainedFive" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].cumulativePercentOfWeightRetainedFive}" />
+             </td>
+             <td>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightPassingOne" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightPassingOne}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightPassingTwo" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightPassingTwo}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightPassingThree" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightPassingThree}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightPassingFour" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightPassingFour}" /><br/>
+                 <input name="soilSieveAnalysisMappingList.percentOfWeightPassingFive" th:field="*{soilSieveAnalysisMappingList[__${itemStat.index}__].percentOfWeightPassingFive}" />
+             </td>
+	    </tr>
+    </table>
+    </center>
+    <br/>
+    <div>
+	    1.The Test Results are based on samples received in the Laboratory
+		<br/>
+		2.Waste material after testing is given back to the Concerned Agency alongwith Test Report.
+    </div>
+     </div>
+     <br/>
+     <br/>
+     <hr/>
+    <div class="formButton">
+   		 <p><input type="submit" value="Print PDF" /> 
+   		  <input type="reset" value="Reset" />
+    </div>
+      <hr/>
+    </form>
+</body>
+</html>

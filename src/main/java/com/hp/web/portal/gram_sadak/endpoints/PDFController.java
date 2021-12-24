@@ -5,6 +5,8 @@ import com.hp.web.portal.gram_sadak.service.IPdfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,7 +36,7 @@ public class PDFController {
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/crushedMetalTestResultSheetPdf")
-	public ResponseEntity<?> generateConcreteCubesTestResultSheetPDF(@ModelAttribute CrushedMetal crushedMetal, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ResponseEntity<?> generateCrushedMetalTestResultSheetPDF(@ModelAttribute CrushedMetal crushedMetal, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		return pdfService.generateTestResultSheetPDF(crushedMetal, request, response,"crushedMetalTestResultSheetPdf");
 	}
 
@@ -44,7 +46,7 @@ public class PDFController {
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/hbMetalTestResultSheetPdf")
-	public ResponseEntity<?> generatePaverBlockTestResultSheetPDF(@ModelAttribute HBMetal hbMetal, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ResponseEntity<?> generateHBMetalTestResultSheetPDF(@ModelAttribute HBMetal hbMetal, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		return pdfService.generateTestResultSheetPDF(hbMetal, request, response,"hbMetalTestResultSheetPdf");
 	}
 
@@ -59,22 +61,43 @@ public class PDFController {
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/penetretionTestResultSheetPdf")
-	public ResponseEntity<?> generatePaverBlockTestResultSheetPDF(@ModelAttribute Penetretion penetretion, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ResponseEntity<?> generatePenetretionTestResultSheetPDF(@ModelAttribute Penetretion penetretion, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		return pdfService.generateTestResultSheetPDF(penetretion, request, response,"penetretionTestResultSheetPdf");
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/rubbleTestResultSheetPdf")
-	public ResponseEntity<?> generateConcreteCubesTestResultSheetPDF(@ModelAttribute Rubble rubble, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ResponseEntity<?> generateRubbleTestResultSheetPDF(@ModelAttribute Rubble rubble, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		return pdfService.generateTestResultSheetPDF(rubble, request, response,"rubbleTestResultSheetPdf");
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/sandTestResultSheetPdf")
-	public ResponseEntity<?> generateBricksTestResultSheetPDF(@ModelAttribute Sand sand, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ResponseEntity<?> generateSandTestResultSheetPDF(@ModelAttribute Sand sand, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		return pdfService.generateTestResultSheetPDF(sand, request, response,"sandTestResultSheetPdf");
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/tilesTestResultSheetPdf")
-	public ResponseEntity<?> generatePaverBlockTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ResponseEntity<?> generateTilesTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		return pdfService.generateTestResultSheetPDF(tiles, request, response,"tilesTestResultSheetPdf");
 	}
+
+	@RequestMapping(path = "/testResultSheet/pdf/gsbTestResultSheetPdf")
+	public ResponseEntity<?> generateGsbTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		return pdfService.generateTestResultSheetPDF(tiles, request, response,"gsbTestResultSheetPdf");
+	}
+
+	@RequestMapping(path = "/testResultSheet/pdf/soilTestResultSheetPdf")
+	public ResponseEntity<?> generateSoilTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		return pdfService.generateTestResultSheetPDF(tiles, request, response,"soilTestResultSheetPdf");
+	}
+
+	@RequestMapping(path = "/testResultSheet/pdf/soilSieveAnalysisTestResultSheetPdf")
+	public ResponseEntity<?> generateSoilSieveAnalysisTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		return pdfService.generateTestResultSheetPDF(tiles, request, response,"soilSieveAnalysisTestResultSheetPdf");
+	}
+
+	@RequestMapping(path = "/testResultSheet/pdf/cementTestResultSheetPdf")
+	public ResponseEntity<?> generateCementTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		return pdfService.generateTestResultSheetPDF(tiles, request, response,"cementTestResultSheetPdf");
+	}
+
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>PRADHAN MANTRI GRAM SADAK YOJANA</title>
+    <link th:href="@{./css/main.css}" rel="stylesheet"/>
+	<link th:href="@{./css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="content" style="margin:1%">
+<body>
+    <form action="#" th:action="@{/testResultSheet/pdf/gsbTestResultSheetPdf}" th:object="${testResultSheet}" method="post">
+    <div th:replace="header :: myheader"></div>
+    <center><h5>Test Result of Sand</h5></center>
+    <br/>
+    <center>
+    <table border="1" align="center">
+		<tr>
+	     <th rowspan=2>Sr. No.</th>
+         <th rowspan=2>Material</th>
+         <th colspan=3>Gradation</th>
+         <th>Sieve Size</th>
+         <th>Actual Passing</th>
+         <th>Specified passing</th>
+		 <th rowspan=2>Maximum Dry Density (M.D.D.)</th>
+         <th rowspan=2>Optimum Moisture Content % (O.M.C)</th>
+        </tr>
+		 <tr class="thbold">
+	    	<td>1</td><td>2</td><td>3</td><td>4</td>
+            <td>5</td><td>6</td><td>7</td>
+	    </tr>
+	     <tr th:each="gsbMappingList, itemStat : ${testResultSheet.gsbMappingList}">
+	     	 <td th:text="*{gsbMappingList[__${itemStat.index}__].srNo}" />
+	     	 <input type="hidden" name="gsbMappingList.srNo" th:field="*{gsbMappingList[__${itemStat.index}__].srNo}" />
+             <td><input name="gsbMappingList.material" th:field="*{gsbMappingList[__${itemStat.index}__].material}" /></td>
+
+             <td>
+                 <input name="gsbMappingList.actualPassingOne" th:field="*{gsbMappingList[__${itemStat.index}__].actualPassingOne}" /><br/>
+                 <input name="gsbMappingList.actualPassingTwo" th:field="*{gsbMappingList[__${itemStat.index}__].actualPassingTwo}" /><br/>
+                 <input name="gsbMappingList.actualPassingThree" th:field="*{gsbMappingList[__${itemStat.index}__].actualPassingThree}" /><br/>
+                 <input name="gsbMappingList.actualPassingFour" th:field="*{gsbMappingList[__${itemStat.index}__].actualPassingFour}" />
+             </td>
+             <td>
+                 <input name="gsbMappingList.specifiedPassingOne" th:field="*{gsbMappingList[__${itemStat.index}__].specifiedPassingOne}" /><br/>
+                 <input name="gsbMappingList.specifiedPassingTwo" th:field="*{gsbMappingList[__${itemStat.index}__].specifiedPassingTwo}" /><br/>
+                 <input name="gsbMappingList.specifiedPassingThree" th:field="*{gsbMappingList[__${itemStat.index}__].specifiedPassingThree}" /><br/>
+                 <input name="gsbMappingList.specifiedPassingFour" th:field="*{gsbMappingList[__${itemStat.index}__].specifiedPassingFour}" />
+             </td>
+             <td>
+                 <input name="gsbMappingList.sieveSizeOne" th:field="*{gsbMappingList[__${itemStat.index}__].sieveSizeOne}" /><br/>
+                 <input name="gsbMappingList.sieveSizeTwo" th:field="*{gsbMappingList[__${itemStat.index}__].sieveSizeTwo}" /><br/>
+                 <input name="gsbMappingList.sieveSizeThree" th:field="*{gsbMappingList[__${itemStat.index}__].sieveSizeThree}" /><br/>
+                 <input name="gsbMappingList.sieveSizeFour" th:field="*{gsbMappingList[__${itemStat.index}__].sieveSizeFour}" />
+             </td>
+
+             <td><input name="gsbMappingList.maximumDryDensity" th:field="*{gsbMappingList[__${itemStat.index}__].maximumDryDensity}" /></td>
+             <td><input name="gsbMappingList.optimumMoistureContent" th:field="*{gsbMappingList[__${itemStat.index}__].optimumMoistureContent}" /></td>
+	    </tr> 
+    </table>
+    </center>
+    <br/>
+    <div>
+	    1.The Test Results are based on samples received in the Laboratory
+		<br/>
+		2.Waste material after testing is given back to the Concerned Agency alongwith Test Report.
+    </div>
+     </div>
+     <br/>
+     <br/>
+     <hr/>
+    <div class="formButton">
+   		 <p><input type="submit" value="Print PDF" /> 
+   		  <input type="reset" value="Reset" />
+    </div>
+      <hr/>
+    </form>
+</body>
+</html>
