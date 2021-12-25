@@ -15,7 +15,7 @@ public class GsbMapping {
 
 	private String actualPassingThree;
 	private String specifiedPassingThree;
-	private String maximumDryDensityThree;
+	private String sieveSizeThree;
 
 	private String actualPassingFour;
 	private String specifiedPassingFour;
@@ -112,12 +112,12 @@ public class GsbMapping {
 		this.specifiedPassingThree = specifiedPassingThree;
 	}
 
-	public String getMaximumDryDensityThree() {
-		return maximumDryDensityThree;
+	public String getSieveSizeThree() {
+		return sieveSizeThree;
 	}
 
-	public void setMaximumDryDensityThree(String maximumDryDensityThree) {
-		this.maximumDryDensityThree = maximumDryDensityThree;
+	public void setSieveSizeThree(String sieveSizeThree) {
+		this.sieveSizeThree = sieveSizeThree;
 	}
 
 	public String getActualPassingFour() {

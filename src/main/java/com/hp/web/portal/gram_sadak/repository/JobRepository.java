@@ -20,7 +20,7 @@ public interface JobRepository extends JpaRepository<Job, Long>{
 	@Query(value="SELECT COALESCE(MAX(jb.JobId), 0)+1 FROM Job jb",nativeQuery = true)
 	Integer getNewJobId();
 	
-	@Modifying(clearAutomatically = true)
+	@Modifying
 	@Transactional
 	@Query(value=" UPDATE Job set JobId=:jobId ",nativeQuery = true)
 	Integer incrementJobId(@Param("jobId") Integer jobId);

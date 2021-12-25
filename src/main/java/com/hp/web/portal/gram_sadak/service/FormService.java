@@ -294,7 +294,7 @@ public class FormService implements IFormService {
 
 		model.addAttribute("testResultSheet", soil);
 
-		return "gsbTestResultSheet";
+		return "soilTestResultSheet";
 	}
 
 	@Override
@@ -313,7 +313,7 @@ public class FormService implements IFormService {
 
 		model.addAttribute("testResultSheet", soilSieveAnalysis);
 
-		return "gsbTestResultSheet";
+		return "soilSieveAnalysisTestResultSheet";
 	}
 
 	@Override
@@ -332,6 +332,6 @@ public class FormService implements IFormService {
 
 		model.addAttribute("testResultSheet", cement);
 
-		return "gsbTestResultSheet";
+		return "cementTestResultSheet";
 	}
 }

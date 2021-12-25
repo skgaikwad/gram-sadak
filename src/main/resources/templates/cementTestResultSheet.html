@@ -23,7 +23,9 @@
          <th rowspan=2>Material</th>
 		 <th rowspan=2>Initial Setting Time (min) More than 30 minutes</th>
          <th rowspan=2>Final Setting Time (min) Less than 600 minutes</th>
-            <th colspan=4>Compressive Strength Kg/cm2</th>
+         <th colspan=4>Compressive Strength Kg/cm2</th>
+        </tr>
+        <tr>
             <th>43 Grade 7 Days (330 kg/cm2)</th>
             <th>43 Grade 28 Days (430 kg/cm2)</th>
             <th>53 Grade 7 Days (370 kg/cm2)</th>
@@ -35,15 +37,15 @@
 	    </tr>
 	     <tr th:each="cementMappingList, itemStat : ${testResultSheet.cementMappingList}">
 	     	 <td th:text="*{cementMappingList[__${itemStat.index}__].srNo}" />
-	     	 <input type="hidden" name="sandMappingList.srNo" th:field="*{sandMappingList[__${itemStat.index}__].srNo}" />
-             <td><input name="cementMappingList.material" th:field="*{sandMappingList[__${itemStat.index}__].material}" /></td>
-             <td><input name="cementMappingList.initialSettingTime" th:field="*{sandMappingList[__${itemStat.index}__].initialSettingTime}" /></td>
-             <td><input name="cementMappingList.finalSettingTime" th:field="*{sandMappingList[__${itemStat.index}__].finalSettingTime}" /></td>
+	     	 <input type="hidden" name="cementMappingList.srNo" th:field="*{cementMappingList[__${itemStat.index}__].srNo}" />
+             <td><input name="cementMappingList.material" th:field="*{cementMappingList[__${itemStat.index}__].material}" /></td>
+             <td><input name="cementMappingList.initialSettingTime" th:field="*{cementMappingList[__${itemStat.index}__].initialSettingTime}" /></td>
+             <td><input name="cementMappingList.finalSettingTime" th:field="*{cementMappingList[__${itemStat.index}__].finalSettingTime}" /></td>
 
-             <td><input name="cementMappingList.compressiveStrength43Grade7Days" th:field="*{sandMappingList[__${itemStat.index}__].compressiveStrength43Grade7Days}" /></td>
-             <td><input name="cementMappingList.compressiveStrength43Grade28Days" th:field="*{sandMappingList[__${itemStat.index}__].compressiveStrength43Grade28Days}" /></td>
-             <td><input name="cementMappingList.compressiveStrength53Grade7Days" th:field="*{sandMappingList[__${itemStat.index}__].compressiveStrength53Grade7Days}" /></td>
-             <td><input name="cementMappingList.compressiveStrength53Grade28Days" th:field="*{sandMappingList[__${itemStat.index}__].compressiveStrength53Grade28Days}" /></td>
+             <td><input name="cementMappingList.compressiveStrength43Grade7Days" th:field="*{cementMappingList[__${itemStat.index}__].compressiveStrength43Grade7Days}" /></td>
+             <td><input name="cementMappingList.compressiveStrength43Grade28Days" th:field="*{cementMappingList[__${itemStat.index}__].compressiveStrength43Grade28Days}" /></td>
+             <td><input name="cementMappingList.compressiveStrength53Grade7Days" th:field="*{cementMappingList[__${itemStat.index}__].compressiveStrength53Grade7Days}" /></td>
+             <td><input name="cementMappingList.compressiveStrength53Grade28Days" th:field="*{cementMappingList[__${itemStat.index}__].compressiveStrength53Grade28Days}" /></td>
 	    </tr> 
     </table>
     </center>

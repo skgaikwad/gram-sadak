@@ -68,7 +68,7 @@ public class PdfServiceImpl implements IPdfService {
 
 		/* Send the response as downloadable PDF */
 		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename="+fileName+".pdf")
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename="+fileName.toUpperCase()+"_"+testResultSheet.getJobId()+".pdf")
 				.contentType(MediaType.APPLICATION_PDF)
 				.body(bytes);
 

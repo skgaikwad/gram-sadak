@@ -81,23 +81,23 @@ public class PDFController {
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/gsbTestResultSheetPdf")
-	public ResponseEntity<?> generateGsbTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
-		return pdfService.generateTestResultSheetPDF(tiles, request, response,"gsbTestResultSheetPdf");
+	public ResponseEntity<?> generateGsbTestResultSheetPDF(@ModelAttribute Gsb gsb, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		return pdfService.generateTestResultSheetPDF(gsb, request, response,"gsbTestResultSheetPdf");
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/soilTestResultSheetPdf")
-	public ResponseEntity<?> generateSoilTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
-		return pdfService.generateTestResultSheetPDF(tiles, request, response,"soilTestResultSheetPdf");
+	public ResponseEntity<?> generateSoilTestResultSheetPDF(@ModelAttribute Soil soil, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		return pdfService.generateTestResultSheetPDF(soil, request, response,"soilTestResultSheetPdf");
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/soilSieveAnalysisTestResultSheetPdf")
-	public ResponseEntity<?> generateSoilSieveAnalysisTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
-		return pdfService.generateTestResultSheetPDF(tiles, request, response,"soilSieveAnalysisTestResultSheetPdf");
+	public ResponseEntity<?> generateSoilSieveAnalysisTestResultSheetPDF(@ModelAttribute SoilSieveAnalysis soilSieveAnalysis, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		return pdfService.generateTestResultSheetPDF(soilSieveAnalysis, request, response,"soilSieveAnalysisTestResultSheetPdf");
 	}
 
 	@RequestMapping(path = "/testResultSheet/pdf/cementTestResultSheetPdf")
-	public ResponseEntity<?> generateCementTestResultSheetPDF(@ModelAttribute Tiles tiles, HttpServletRequest request, HttpServletResponse response) throws IOException {
-		return pdfService.generateTestResultSheetPDF(tiles, request, response,"cementTestResultSheetPdf");
+	public ResponseEntity<?> generateCementTestResultSheetPDF(@ModelAttribute Cement cement, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		return pdfService.generateTestResultSheetPDF(cement, request, response,"cementTestResultSheetPdf");
 	}
 
 }
