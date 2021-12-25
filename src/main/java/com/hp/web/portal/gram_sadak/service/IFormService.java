@@ -30,4 +30,11 @@ public interface IFormService {
 
 	String testResultTiles(Model model);
 
+    String testResultGsb(Model model);
+
+	String testResultSoil(Model model);
+
+	String testResultSoilSieveAnalysis(Model model);
+
+	String testResultCement(Model model);
 }

@@ -20,7 +20,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 	@Query(value="SELECT COALESCE(MAX(txn.TransactionId), 0)+1 FROM Transaction txn",nativeQuery = true)
 	Integer getNewTransactionId();
 	
-	@Modifying(clearAutomatically = true)
+	@Modifying
 	@Transactional
 	@Query(value="UPDATE Transaction set  TransactionId=:transactionId ",nativeQuery = true)
 	Integer incrementTransactionId(@Param("transactionId") Integer transactionId);

@@ -20,7 +20,6 @@ public class Job implements Serializable
     @Column(name="JobId")
     private Integer jobId;
 
-
     public Integer getJobId() {
         return jobId;
     }

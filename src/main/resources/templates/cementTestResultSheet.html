@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>PRADHAN MANTRI GRAM SADAK YOJANA</title>
+    <link th:href="@{./css/main.css}" rel="stylesheet"/>
+	<link th:href="@{./css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="content" style="margin:1%">
+<body>
+    <form action="#" th:action="@{/testResultSheet/pdf/cementTestResultSheetPdf}" th:object="${testResultSheet}" method="post">
+    <div th:replace="header :: myheader"></div>
+    <center><h5>Test Result of Cement</h5></center>
+    <br/>
+    <center>
+    <table border="1" align="center">
+		<tr>
+	     <th rowspan=2>Sr. No.</th>
+         <th rowspan=2>Material</th>
+		 <th rowspan=2>Initial Setting Time (min) More than 30 minutes</th>
+         <th rowspan=2>Final Setting Time (min) Less than 600 minutes</th>
+         <th colspan=4>Compressive Strength Kg/cm2</th>
+        </tr>
+        <tr>
+            <th>43 Grade 7 Days (330 kg/cm2)</th>
+            <th>43 Grade 28 Days (430 kg/cm2)</th>
+            <th>53 Grade 7 Days (370 kg/cm2)</th>
+            <th>53 Grade 28 Days (530 kg/cm2)</th>
+        </tr>
+		 <tr class="thbold">
+	    	 <td>1</td><td>2</td><td>3</td><td>4</td>
+             <td>5</td><td>6</td><td>7</td><td>8</td>
+	    </tr>
+	     <tr th:each="cementMappingList, itemStat : ${testResultSheet.cementMappingList}">
+	     	 <td th:text="*{cementMappingList[__${itemStat.index}__].srNo}" />
+	     	 <input type="hidden" name="cementMappingList.srNo" th:field="*{cementMappingList[__${itemStat.index}__].srNo}" />
+             <td><input name="cementMappingList.material" th:field="*{cementMappingList[__${itemStat.index}__].material}" /></td>
+             <td><input name="cementMappingList.initialSettingTime" th:field="*{cementMappingList[__${itemStat.index}__].initialSettingTime}" /></td>
+             <td><input name="cementMappingList.finalSettingTime" th:field="*{cementMappingList[__${itemStat.index}__].finalSettingTime}" /></td>
+
+             <td><input name="cementMappingList.compressiveStrength43Grade7Days" th:field="*{cementMappingList[__${itemStat.index}__].compressiveStrength43Grade7Days}" /></td>
+             <td><input name="cementMappingList.compressiveStrength43Grade28Days" th:field="*{cementMappingList[__${itemStat.index}__].compressiveStrength43Grade28Days}" /></td>
+             <td><input name="cementMappingList.compressiveStrength53Grade7Days" th:field="*{cementMappingList[__${itemStat.index}__].compressiveStrength53Grade7Days}" /></td>
+             <td><input name="cementMappingList.compressiveStrength53Grade28Days" th:field="*{cementMappingList[__${itemStat.index}__].compressiveStrength53Grade28Days}" /></td>
+	    </tr> 
+    </table>
+    </center>
+    <br/>
+    <div>
+	    1.The Test Results are based on samples received in the Laboratory
+		<br/>
+		2.Waste material after testing is given back to the Concerned Agency alongwith Test Report.
+    </div>
+     </div>
+     <br/>
+     <br/>
+     <hr/>
+    <div class="formButton">
+   		 <p><input type="submit" value="Print PDF" /> 
+   		  <input type="reset" value="Reset" />
+    </div>
+      <hr/>
+    </form>
+</body>
+</html>

@@ -258,4 +258,80 @@ public class FormService implements IFormService {
 
 		return "tilesTestResultSheet";
 	}
+
+	@Override
+	public String testResultGsb(Model model) {
+		Integer jobId = jobRepository.getNewJobId();
+		Integer transactionId = transactionRepository.getNewTransactionId();
+
+		Gsb gsb = new Gsb();
+		gsb.setTransactionId(transactionId);
+		gsb.setJobId(jobId);
+
+		List<GsbMapping> gsbMappingList = new ArrayList<>();
+		gsbMappingList.add(new GsbMapping(("1")));
+
+		gsb.setGsbMappingList(gsbMappingList);
+
+		model.addAttribute("testResultSheet", gsb);
+
+		return "gsbTestResultSheet";
+	}
+
+	@Override
+	public String testResultSoil(Model model) {
+		Integer jobId = jobRepository.getNewJobId();
+		Integer transactionId = transactionRepository.getNewTransactionId();
+
+		Soil soil = new Soil();
+		soil.setTransactionId(transactionId);
+		soil.setJobId(jobId);
+
+		List<SoilMapping> soilMappingList = new ArrayList<>();
+		soilMappingList.add(new SoilMapping(("1")));
+
+		soil.setSoilMappingList(soilMappingList);
+
+		model.addAttribute("testResultSheet", soil);
+
+		return "soilTestResultSheet";
+	}
+
+	@Override
+	public String testResultSoilSieveAnalysis(Model model) {
+		Integer jobId = jobRepository.getNewJobId();
+		Integer transactionId = transactionRepository.getNewTransactionId();
+
+		SoilSieveAnalysis soilSieveAnalysis = new SoilSieveAnalysis();
+		soilSieveAnalysis.setTransactionId(transactionId);
+		soilSieveAnalysis.setJobId(jobId);
+
+		List<SoilSieveAnalysisMapping> soilSieveAnalysisMappingList = new ArrayList<>();
+		soilSieveAnalysisMappingList.add(new SoilSieveAnalysisMapping(("1")));
+
+		soilSieveAnalysis.setSoilSieveAnalysisMappingList(soilSieveAnalysisMappingList);
+
+		model.addAttribute("testResultSheet", soilSieveAnalysis);
+
+		return "soilSieveAnalysisTestResultSheet";
+	}
+
+	@Override
+	public String testResultCement(Model model) {
+		Integer jobId = jobRepository.getNewJobId();
+		Integer transactionId = transactionRepository.getNewTransactionId();
+
+		Cement cement = new Cement();
+		cement.setTransactionId(transactionId);
+		cement.setJobId(jobId);
+
+		List<CementMapping> cementMappingList = new ArrayList<>();
+		cementMappingList.add(new CementMapping(("1")));
+
+		cement.setCementMappingList(cementMappingList);
+
+		model.addAttribute("testResultSheet", cement);
+
+		return "cementTestResultSheet";
+	}
 }

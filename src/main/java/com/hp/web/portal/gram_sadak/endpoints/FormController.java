@@ -81,4 +81,24 @@ public class FormController {
 		return formService.testResultTiles(model);
 	}
 
+	@GetMapping("/gsbTestResultSheet")
+	public String testResultGsb(Model model) {
+		return formService.testResultGsb(model);
+	}
+
+	@GetMapping("/soilTestResultSheet")
+	public String testResultSoil(Model model) {
+		return formService.testResultSoil(model);
+	}
+
+	@GetMapping("/soilSieveAnalysisTestResultSheet")
+	public String testResultSoilSieveAnalysis(Model model) {
+		return formService.testResultSoilSieveAnalysis(model);
+	}
+
+	@GetMapping("/cementTestResultSheet")
+	public String testResultCement(Model model) {
+		return formService.testResultCement(model);
+	}
+
 }
